@@ -1,0 +1,54 @@
+import React from 'react';
+import axios from 'axios';
+
+class ArtistsPage extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			artists: []
+		}
+		this.addArtist=this.addArtist.bind(this);
+	}
+	componentDidMount(){
+		var self=this;
+		axios.post('/artist/allartists/', {}).then(function(response){
+			if(response.data.status==='OK'){
+				self.setState({artists: response.data.artists});
+			}
+		});
+	}
+	addArtist(e){
+		var self=this;
+		const artist=this.refs.artist.value.trim();
+		axios.post('/artist/add/', {artistName: artist}).then(function(response){
+			if(response.data.status==='OK'){
+				self.refs.artist.value='';
+				var allArtists=self.state.artists;
+				allArtists.push(response.data.artist[0]);
+				self.setState({artists: allArtists});
+			}
+		});
+	}
+	render(){
+		return(
+			<div>
+				<input type="text" ref="artist" />
+				<button onClick={this.addArtist}>Add</button>
+				{this.state.tags.map((artist, i)=><Artist key={i} data={artist} />)}
+			</div>
+		);
+	}
+}
+
+class Artist extends React.Component{
+	constructor(props){
+		super(props);
+	}
+	render(){
+		return(
+			<div>{this.props.data.artistName}</div>
+		);
+	}
+}
+
+export default ArtistsPage;
