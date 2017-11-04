@@ -3,6 +3,8 @@ from views import *
 
 urlpatterns = [
 	url(r'^upload/$', upload),
+	url(r'^edit/$', edit),
+	url(r'^remove/$', remove),
 	url(r'^allsongs/$', allSongs),
 	url(r'^play/$', play),
 	url(r'^pause/$', pause),

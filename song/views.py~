@@ -8,6 +8,7 @@ import os
 from django.conf import settings
 from subprocess import Popen, PIPE
 import requests
+import os
 
 media = None
 instance = vlc.Instance()
@@ -35,6 +36,28 @@ def upload(request):
 		song = Song(songName = post['name'], songFile = files['file'])
 		song.save()
 		addNewSong(song)
+		response['status'] = 'OK'
+	return JsonResponse(response)
+	
+@csrf_exempt
+def edit(request):
+	response = {}
+	if request.method == 'POST':
+		body = json.loads(request.body)
+		song = Song.objects.get(songId = body['id'])
+		song.songName = body['name']
+		song.save(update_fields = ['songName'])
+		response['status'] = 'OK'
+	return JsonResponse(response)
+	
+@csrf_exempt
+def remove(request):
+	response = {}
+	if request.method == 'POST':
+		body = json.loads(request.body)
+		song = Song.objects.get(songId = body['id'])
+		removeSong(song)
+		song.delete()
 		response['status'] = 'OK'
 	return JsonResponse(response)
 
@@ -181,8 +204,14 @@ def searchData(request):
 		res = requests.post('http://localhost:9200/player/song/_search?q=size:4+songName:' + body['search'] + '*')
 		data = json.loads(res.content)
 		response['status'] = 'OK'
-		response['data'] = data['hits']['hits']
+		response['data'] = []
+		for song in data['hits']['hits']:
+			response['data'].append({'songName': song['_source']['songName'], 'songId': song['_source']['songId']})
 	return JsonResponse(response)
+	
+def removeSong(song):
+	os.remove(str(song.songFile))
+	res = requests.delete('http://localhost:9200/player/song/' + str(song.songId))
 	
 def searchRelated():
 	global relatedSongs
@@ -193,7 +222,6 @@ def searchRelated():
 		q = ['*']
 	res = json.loads(requests.post('http://localhost:9200/player/song/_search?q=size:10+songName:' + '%20'.join(q) + '+-songId:' + str(currentSong.songId)).content)
 	data = {}
-	print url
 	data['type'] = 'related'
 	relatedSongs = []
 	for hit in res['hits']['hits']:

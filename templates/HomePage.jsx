@@ -52,14 +52,22 @@ class HomePage extends React.Component{
 	}
 	render(){
 		return(
-			<div>
-				<Search data={this.state.playing} />
-				<ControlButtons />
-				Songs
-				{this.state.songs.map((song, i)=><Song key={i} data={song} />)}
-				Related
-				{this.state.relatedSongs.map((song, i)=><Song key={i} data={song} />)}
-				<Websocket url={this.state.socketUrl} onMessage={this.handleData} />
+			<div className="row">
+				<div className="row">
+					<Search data={this.state.playing} />
+					<ControlButtons />
+				</div>
+				<div className="row">
+					<div id="songs" className="col-md-4 col-sm-4 scrollDiv">
+						<h3><i>Songs</i></h3>
+						{this.state.songs.map((song, i)=><Song key={i} data={song} />)}
+					</div>
+					<div id="related" className="col-md-4 col-sm-4 scrollDiv">
+						<h3><i>Related</i></h3>
+						{this.state.relatedSongs.map((song, i)=><Song key={i} data={song} />)}
+					</div>
+					<Websocket url={this.state.socketUrl} onMessage={this.handleData} />
+				</div>
 			</div>
 		);
 	}
@@ -71,8 +79,9 @@ class Song extends React.Component{
 	}
 	render(){
 		return(
-			<div>
-				<Link to={"/details/"+this.props.data.songId}>{this.props.data.songName}</Link><PlayButton data={this.props.data.songId} />
+			<div className="row">
+				<div className="col-md-6 col-sm-6"><Link to={"/details/"+this.props.data.songId}>{this.props.data.songName}</Link></div>
+				<PlayButton data={this.props.data.songId} />
 			</div>
 		);
 	}
@@ -83,12 +92,15 @@ class Search extends React.Component{
 		super(props);
 		this.state={
 			songId: '',
-			query: ''
+			query: '',
+			searchResults: []
 		}
 		this.handleSearch=this.handleSearch.bind(this);
 		this.querySearch=this.querySearch.bind(this);
+		this.selectSearch=this.selectSearch.bind(this);
 	}
 	componentWillReceiveProps(nextProps){
+		this.setState({searchResults: []});
 		if(nextProps.data.songName!==undefined){
 			this.refs.search.value=nextProps.data.songName;
 			this.setState({songId: nextProps.data.songId});
@@ -96,27 +108,63 @@ class Search extends React.Component{
 	}
 	querySearch(){
 		var self=this;
-		axios.post('/song/searchdata/', {search: this.refs.search.value.trim()}).then(function(response){
-			if(response.data.status==='OK'){
-				console.log(response.data.data);
-				if(response.data.data.length>0){
-					self.setState({songId: response.data.data[0]['_source'].songId});
+		if(this.refs.search.value.trim().length>0){
+			axios.post('/song/searchdata/', {search: this.refs.search.value.trim()}).then(function(response){
+				if(response.data.status==='OK'){
+					console.log(response.data.data);
+					if(response.data.data.length>0){
+						self.setState({songId: response.data.data[0].songId});
+						self.setState({searchResults: response.data.data});
+					}
 				}
-			}
-		});
+			});
+		}
+		else{
+			self.setState({searchResults: []});
+		}
 	}
 	handleSearch(e){
+		this.setState({searchResults: []});
 		window.clearTimeout(this.state.query);
 		this.setState({query: window.setTimeout(this.querySearch,1500)});
 	}
 	componentWillUnmount(){
 		window.clearTimeout(this.state.query);	
 	}
+	selectSearch(song){
+		this.setState({songId: song.songId, searchResults: []});
+		this.refs.search.value=song.songName;
+	}
 	render(){
 		return(
-			<div>
-				<input type="text" ref="search" onChange={this.handleSearch}/>
-				<PlayButton data={this.state.songId} />
+			<div className="col-md-6 col-sm-6">
+				<div className="row">
+					<div className="col-md-6 col-sm-6"><input type="text" ref="search" onChange={this.handleSearch} className="form-control"/></div>
+					<div className="col-md-3 col-sm-3"><Link to={"/details/"+this.state.songId}><button type="button" className="btn btn-default">Details</button></Link></div>
+					<PlayButton data={this.state.songId} />
+				</div>
+				{this.state.searchResults.length>0?(
+					<div className="absolute"><div className="row  panel panel-default">
+						{this.state.searchResults.map((searchResult, i)=><SearchResult key={i} data={searchResult} selectSearch={this.selectSearch}/>)}
+					</div></div>): null}
+			</div>
+		);
+	}
+}
+
+class SearchResult extends React.Component{
+	constructor(props){
+		super(props);
+		this.handleClick=this.handleClick.bind(this);
+	}
+	handleClick(e){
+		var song=this.props.data;
+		this.props.selectSearch(song);
+	}
+	render(){
+		return(
+			<div className="col-md-12 col-sm-12" onClick={this.handleClick}>
+				{this.props.data.songName}
 			</div>
 		);
 	}
@@ -128,7 +176,7 @@ class ControlButtons extends React.Component{
 	}
 	render(){
 		return(
-			<div>
+			<div className="col-md-6 col-sm-6">
 				<PauseButton />
 				<StopButton />
 				<VolumeUpButton />
@@ -153,8 +201,8 @@ class PauseButton extends React.Component{
 	}
 	render(){
 		return(
-			<div>
-				<button onClick={this.pauseSong}>Pause</button>
+			<div className="col-md-3 col-sm-3">
+				<button onClick={this.pauseSong} className="btn btn-default">Pause</button>
 			</div>
 		);
 	}
@@ -174,8 +222,8 @@ class StopButton extends React.Component{
 	}
 	render(){
 		return(
-			<div>
-				<button onClick={this.stopSong}>Stop</button>
+			<div className="col-md-3 col-sm-3">
+				<button onClick={this.stopSong} className="btn btn-default">Stop</button>
 			</div>
 		);
 	}
@@ -195,8 +243,8 @@ class VolumeUpButton extends React.Component{
 	}
 	render(){
 		return(
-			<div>
-				<button onClick={this.volumeUp}>Volume Up</button>
+			<div className="col-md-3 col-sm-3">
+				<button onClick={this.volumeUp} className="btn btn-default">Volume Up</button>
 			</div>
 		);
 	}
@@ -216,8 +264,8 @@ class VolumeDownButton extends React.Component{
 	}
 	render(){
 		return(
-			<div>
-				<button onClick={this.volumeDown}>Volume Down</button>
+			<div className="col-md-3 col-sm-3">
+				<button onClick={this.volumeDown} className="btn btn-default">Volume Down</button>
 			</div>
 		);
 	}

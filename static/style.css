@@ -1,0 +1,14 @@
+div {
+	padding: 1px;
+}
+
+.scrollDiv {
+	height: 80%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.absolute {
+	position: absolute;
+	z-index: 2;
+}

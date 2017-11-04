@@ -21,3 +21,14 @@ def add(request):
 		response['tag'] = list(Tag.objects.filter(pk = tag.pk).values())
 		response['status'] = 'OK'
 	return JsonResponse(response)
+	
+@csrf_exempt
+def edit(request):
+	response = {}
+	if request.method == 'POST':
+		body = json.loads(request.body)
+		tag = Tag.objects.get(tagId = body['id'])
+		tag.tagName = body['name']
+		tag.save(update_fields = ['tagName'])
+		response['status'] = 'OK'
+	return JsonResponse(response)

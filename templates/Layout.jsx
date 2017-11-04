@@ -9,12 +9,8 @@ class Layout extends React.Component{
 	render(){
 		return(
 			<div>
-				<div>Layout top</div>
-				<div>
-					<TopBar />
-				</div>
-				<div>{this.props.children}</div>
-				<div>Layout bottom</div>
+				<TopBar />
+				{this.props.children}
 			</div>
 		);
 	}
@@ -26,11 +22,10 @@ class TopBar extends React.Component{
 	}
 	render(){
 		return(
-			<div>
-				<Link to="/">home</Link>
-				<Link to="/upload">upload</Link>
-				<Link to="/tags">tags</Link>
-				
+			<div className="row">
+				<Link to="/"><div className="col-md-4 col-sm-4 text-center panel panel-default"><button type="button" className="btn btn-link">Home</button></div></Link>
+				<Link to="/upload"><div className="col-md-4 col-sm-4 text-center panel panel-default"><button type="button" className="btn btn-link">Upload</button></div></Link>
+				<Link to="/tags"><div className="col-md-4 col-sm-4 text-center panel panel-default"><button type="button" className="btn btn-link">Tags</button></div></Link>
 			</div>
 		);
 	}

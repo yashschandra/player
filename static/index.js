@@ -1687,7 +1687,7 @@ var CallbackQueue = __webpack_require__(83);
 var PooledClass = __webpack_require__(21);
 var ReactFeatureFlags = __webpack_require__(84);
 var ReactReconciler = __webpack_require__(26);
-var Transaction = __webpack_require__(38);
+var Transaction = __webpack_require__(39);
 
 var invariant = __webpack_require__(1);
 
@@ -2595,7 +2595,7 @@ var _assign = __webpack_require__(5);
 var ReactCurrentOwner = __webpack_require__(14);
 
 var warning = __webpack_require__(2);
-var canDefineProperty = __webpack_require__(35);
+var canDefineProperty = __webpack_require__(36);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 var REACT_ELEMENT_TYPE = __webpack_require__(74);
@@ -3161,7 +3161,7 @@ var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
   var lowPriorityWarning = __webpack_require__(48);
-  var canDefineProperty = __webpack_require__(35);
+  var canDefineProperty = __webpack_require__(36);
   var ReactElementValidator = __webpack_require__(76);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
@@ -3492,7 +3492,7 @@ module.exports = ReactReconciler;
 
 
 var DOMNamespaces = __webpack_require__(55);
-var setInnerHTML = __webpack_require__(40);
+var setInnerHTML = __webpack_require__(41);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(56);
 var setTextContent = __webpack_require__(88);
@@ -4014,7 +4014,7 @@ module.exports = EventPropagators;
 
 var _prodInvariant = __webpack_require__(3);
 
-var EventPluginRegistry = __webpack_require__(37);
+var EventPluginRegistry = __webpack_require__(38);
 var EventPluginUtils = __webpack_require__(49);
 var ReactErrorUtils = __webpack_require__(50);
 
@@ -4391,6 +4391,168 @@ module.exports = ReactInstanceMap;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+exports.__esModule = true;
+exports.createMemoryHistory = exports.hashHistory = exports.browserHistory = exports.applyRouterMiddleware = exports.formatPattern = exports.useRouterHistory = exports.match = exports.routerShape = exports.locationShape = exports.PropTypes = exports.RoutingContext = exports.RouterContext = exports.createRoutes = exports.useRoutes = exports.RouteContext = exports.Lifecycle = exports.History = exports.Route = exports.Redirect = exports.IndexRoute = exports.IndexRedirect = exports.withRouter = exports.IndexLink = exports.Link = exports.Router = undefined;
+
+var _RouteUtils = __webpack_require__(19);
+
+Object.defineProperty(exports, 'createRoutes', {
+  enumerable: true,
+  get: function get() {
+    return _RouteUtils.createRoutes;
+  }
+});
+
+var _PropTypes2 = __webpack_require__(65);
+
+Object.defineProperty(exports, 'locationShape', {
+  enumerable: true,
+  get: function get() {
+    return _PropTypes2.locationShape;
+  }
+});
+Object.defineProperty(exports, 'routerShape', {
+  enumerable: true,
+  get: function get() {
+    return _PropTypes2.routerShape;
+  }
+});
+
+var _PatternUtils = __webpack_require__(28);
+
+Object.defineProperty(exports, 'formatPattern', {
+  enumerable: true,
+  get: function get() {
+    return _PatternUtils.formatPattern;
+  }
+});
+
+var _Router2 = __webpack_require__(225);
+
+var _Router3 = _interopRequireDefault(_Router2);
+
+var _Link2 = __webpack_require__(110);
+
+var _Link3 = _interopRequireDefault(_Link2);
+
+var _IndexLink2 = __webpack_require__(239);
+
+var _IndexLink3 = _interopRequireDefault(_IndexLink2);
+
+var _withRouter2 = __webpack_require__(240);
+
+var _withRouter3 = _interopRequireDefault(_withRouter2);
+
+var _IndexRedirect2 = __webpack_require__(242);
+
+var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
+
+var _IndexRoute2 = __webpack_require__(243);
+
+var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
+
+var _Redirect2 = __webpack_require__(111);
+
+var _Redirect3 = _interopRequireDefault(_Redirect2);
+
+var _Route2 = __webpack_require__(244);
+
+var _Route3 = _interopRequireDefault(_Route2);
+
+var _History2 = __webpack_require__(245);
+
+var _History3 = _interopRequireDefault(_History2);
+
+var _Lifecycle2 = __webpack_require__(246);
+
+var _Lifecycle3 = _interopRequireDefault(_Lifecycle2);
+
+var _RouteContext2 = __webpack_require__(247);
+
+var _RouteContext3 = _interopRequireDefault(_RouteContext2);
+
+var _useRoutes2 = __webpack_require__(248);
+
+var _useRoutes3 = _interopRequireDefault(_useRoutes2);
+
+var _RouterContext2 = __webpack_require__(47);
+
+var _RouterContext3 = _interopRequireDefault(_RouterContext2);
+
+var _RoutingContext2 = __webpack_require__(249);
+
+var _RoutingContext3 = _interopRequireDefault(_RoutingContext2);
+
+var _PropTypes3 = _interopRequireDefault(_PropTypes2);
+
+var _match2 = __webpack_require__(250);
+
+var _match3 = _interopRequireDefault(_match2);
+
+var _useRouterHistory2 = __webpack_require__(114);
+
+var _useRouterHistory3 = _interopRequireDefault(_useRouterHistory2);
+
+var _applyRouterMiddleware2 = __webpack_require__(252);
+
+var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
+
+var _browserHistory2 = __webpack_require__(253);
+
+var _browserHistory3 = _interopRequireDefault(_browserHistory2);
+
+var _hashHistory2 = __webpack_require__(255);
+
+var _hashHistory3 = _interopRequireDefault(_hashHistory2);
+
+var _createMemoryHistory2 = __webpack_require__(112);
+
+var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.Router = _Router3.default; /* components */
+
+exports.Link = _Link3.default;
+exports.IndexLink = _IndexLink3.default;
+exports.withRouter = _withRouter3.default;
+
+/* components (configuration) */
+
+exports.IndexRedirect = _IndexRedirect3.default;
+exports.IndexRoute = _IndexRoute3.default;
+exports.Redirect = _Redirect3.default;
+exports.Route = _Route3.default;
+
+/* mixins */
+
+exports.History = _History3.default;
+exports.Lifecycle = _Lifecycle3.default;
+exports.RouteContext = _RouteContext3.default;
+
+/* utils */
+
+exports.useRoutes = _useRoutes3.default;
+exports.RouterContext = _RouterContext3.default;
+exports.RoutingContext = _RoutingContext3.default;
+exports.PropTypes = _PropTypes3.default;
+exports.match = _match3.default;
+exports.useRouterHistory = _useRouterHistory3.default;
+exports.applyRouterMiddleware = _applyRouterMiddleware3.default;
+
+/* histories */
+
+exports.browserHistory = _browserHistory3.default;
+exports.hashHistory = _hashHistory3.default;
+exports.createMemoryHistory = _createMemoryHistory3.default;
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -4417,7 +4579,7 @@ module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4441,7 +4603,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4698,7 +4860,7 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4930,7 +5092,7 @@ module.exports = TransactionImpl;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5005,7 +5167,7 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 module.exports = SyntheticMouseEvent;
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5106,7 +5268,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5231,7 +5393,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5247,7 +5409,7 @@ module.exports = escapeTextContentForBrowser;
 
 var _assign = __webpack_require__(5);
 
-var EventPluginRegistry = __webpack_require__(37);
+var EventPluginRegistry = __webpack_require__(38);
 var ReactEventEmitterMixin = __webpack_require__(172);
 var ViewportMetrics = __webpack_require__(87);
 
@@ -5556,168 +5718,6 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 });
 
 module.exports = ReactBrowserEventEmitter;
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.createMemoryHistory = exports.hashHistory = exports.browserHistory = exports.applyRouterMiddleware = exports.formatPattern = exports.useRouterHistory = exports.match = exports.routerShape = exports.locationShape = exports.PropTypes = exports.RoutingContext = exports.RouterContext = exports.createRoutes = exports.useRoutes = exports.RouteContext = exports.Lifecycle = exports.History = exports.Route = exports.Redirect = exports.IndexRoute = exports.IndexRedirect = exports.withRouter = exports.IndexLink = exports.Link = exports.Router = undefined;
-
-var _RouteUtils = __webpack_require__(19);
-
-Object.defineProperty(exports, 'createRoutes', {
-  enumerable: true,
-  get: function get() {
-    return _RouteUtils.createRoutes;
-  }
-});
-
-var _PropTypes2 = __webpack_require__(65);
-
-Object.defineProperty(exports, 'locationShape', {
-  enumerable: true,
-  get: function get() {
-    return _PropTypes2.locationShape;
-  }
-});
-Object.defineProperty(exports, 'routerShape', {
-  enumerable: true,
-  get: function get() {
-    return _PropTypes2.routerShape;
-  }
-});
-
-var _PatternUtils = __webpack_require__(28);
-
-Object.defineProperty(exports, 'formatPattern', {
-  enumerable: true,
-  get: function get() {
-    return _PatternUtils.formatPattern;
-  }
-});
-
-var _Router2 = __webpack_require__(225);
-
-var _Router3 = _interopRequireDefault(_Router2);
-
-var _Link2 = __webpack_require__(110);
-
-var _Link3 = _interopRequireDefault(_Link2);
-
-var _IndexLink2 = __webpack_require__(239);
-
-var _IndexLink3 = _interopRequireDefault(_IndexLink2);
-
-var _withRouter2 = __webpack_require__(240);
-
-var _withRouter3 = _interopRequireDefault(_withRouter2);
-
-var _IndexRedirect2 = __webpack_require__(242);
-
-var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
-
-var _IndexRoute2 = __webpack_require__(243);
-
-var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
-
-var _Redirect2 = __webpack_require__(111);
-
-var _Redirect3 = _interopRequireDefault(_Redirect2);
-
-var _Route2 = __webpack_require__(244);
-
-var _Route3 = _interopRequireDefault(_Route2);
-
-var _History2 = __webpack_require__(245);
-
-var _History3 = _interopRequireDefault(_History2);
-
-var _Lifecycle2 = __webpack_require__(246);
-
-var _Lifecycle3 = _interopRequireDefault(_Lifecycle2);
-
-var _RouteContext2 = __webpack_require__(247);
-
-var _RouteContext3 = _interopRequireDefault(_RouteContext2);
-
-var _useRoutes2 = __webpack_require__(248);
-
-var _useRoutes3 = _interopRequireDefault(_useRoutes2);
-
-var _RouterContext2 = __webpack_require__(47);
-
-var _RouterContext3 = _interopRequireDefault(_RouterContext2);
-
-var _RoutingContext2 = __webpack_require__(249);
-
-var _RoutingContext3 = _interopRequireDefault(_RoutingContext2);
-
-var _PropTypes3 = _interopRequireDefault(_PropTypes2);
-
-var _match2 = __webpack_require__(250);
-
-var _match3 = _interopRequireDefault(_match2);
-
-var _useRouterHistory2 = __webpack_require__(114);
-
-var _useRouterHistory3 = _interopRequireDefault(_useRouterHistory2);
-
-var _applyRouterMiddleware2 = __webpack_require__(252);
-
-var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
-
-var _browserHistory2 = __webpack_require__(253);
-
-var _browserHistory3 = _interopRequireDefault(_browserHistory2);
-
-var _hashHistory2 = __webpack_require__(255);
-
-var _hashHistory3 = _interopRequireDefault(_hashHistory2);
-
-var _createMemoryHistory2 = __webpack_require__(112);
-
-var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Router = _Router3.default; /* components */
-
-exports.Link = _Link3.default;
-exports.IndexLink = _IndexLink3.default;
-exports.withRouter = _withRouter3.default;
-
-/* components (configuration) */
-
-exports.IndexRedirect = _IndexRedirect3.default;
-exports.IndexRoute = _IndexRoute3.default;
-exports.Redirect = _Redirect3.default;
-exports.Route = _Route3.default;
-
-/* mixins */
-
-exports.History = _History3.default;
-exports.Lifecycle = _Lifecycle3.default;
-exports.RouteContext = _RouteContext3.default;
-
-/* utils */
-
-exports.useRoutes = _useRoutes3.default;
-exports.RouterContext = _RouterContext3.default;
-exports.RoutingContext = _RoutingContext3.default;
-exports.PropTypes = _PropTypes3.default;
-exports.match = _match3.default;
-exports.useRouterHistory = _useRouterHistory3.default;
-exports.applyRouterMiddleware = _applyRouterMiddleware3.default;
-
-/* histories */
-
-exports.browserHistory = _browserHistory3.default;
-exports.hashHistory = _hashHistory3.default;
-exports.createMemoryHistory = _createMemoryHistory3.default;
 
 /***/ }),
 /* 44 */
@@ -6707,7 +6707,7 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(11);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(56);
-var setInnerHTML = __webpack_require__(40);
+var setInnerHTML = __webpack_require__(41);
 var setTextContent = __webpack_require__(88);
 
 function getNodeAfter(parentNode, node) {
@@ -8777,8 +8777,8 @@ var _prodInvariant = __webpack_require__(25),
 
 var ReactNoopUpdateQueue = __webpack_require__(73);
 
-var canDefineProperty = __webpack_require__(35);
-var emptyObject = __webpack_require__(36);
+var canDefineProperty = __webpack_require__(36);
+var emptyObject = __webpack_require__(37);
 var invariant = __webpack_require__(1);
 var lowPriorityWarning = __webpack_require__(48);
 
@@ -9098,7 +9098,7 @@ var ReactElement = __webpack_require__(20);
 
 var checkReactTypeSpec = __webpack_require__(127);
 
-var canDefineProperty = __webpack_require__(35);
+var canDefineProperty = __webpack_require__(36);
 var getIteratorFn = __webpack_require__(75);
 var warning = __webpack_require__(2);
 var lowPriorityWarning = __webpack_require__(48);
@@ -9899,8 +9899,8 @@ module.exports = ViewportMetrics;
 
 
 var ExecutionEnvironment = __webpack_require__(7);
-var escapeTextContentForBrowser = __webpack_require__(41);
-var setInnerHTML = __webpack_require__(40);
+var escapeTextContentForBrowser = __webpack_require__(42);
+var setInnerHTML = __webpack_require__(41);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -11320,7 +11320,7 @@ var _prodInvariant = __webpack_require__(3);
 var DOMLazyTree = __webpack_require__(27);
 var DOMProperty = __webpack_require__(18);
 var React = __webpack_require__(24);
-var ReactBrowserEventEmitter = __webpack_require__(42);
+var ReactBrowserEventEmitter = __webpack_require__(43);
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMContainerInfo = __webpack_require__(213);
@@ -11333,10 +11333,10 @@ var ReactReconciler = __webpack_require__(26);
 var ReactUpdateQueue = __webpack_require__(62);
 var ReactUpdates = __webpack_require__(15);
 
-var emptyObject = __webpack_require__(36);
+var emptyObject = __webpack_require__(37);
 var instantiateReactComponent = __webpack_require__(94);
 var invariant = __webpack_require__(1);
-var setInnerHTML = __webpack_require__(40);
+var setInnerHTML = __webpack_require__(41);
 var shouldUpdateReactComponent = __webpack_require__(60);
 var warning = __webpack_require__(2);
 
@@ -15050,7 +15050,7 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 var _assign = __webpack_require__(5);
 
-var emptyObject = __webpack_require__(36);
+var emptyObject = __webpack_require__(37);
 var _invariant = __webpack_require__(1);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -17864,7 +17864,7 @@ module.exports = DefaultEventPluginOrder;
 
 var EventPropagators = __webpack_require__(31);
 var ReactDOMComponentTree = __webpack_require__(6);
-var SyntheticMouseEvent = __webpack_require__(39);
+var SyntheticMouseEvent = __webpack_require__(40);
 
 var eventTypes = {
   mouseEnter: {
@@ -18650,8 +18650,8 @@ var DOMNamespaces = __webpack_require__(55);
 var DOMProperty = __webpack_require__(18);
 var DOMPropertyOperations = __webpack_require__(91);
 var EventPluginHub = __webpack_require__(32);
-var EventPluginRegistry = __webpack_require__(37);
-var ReactBrowserEventEmitter = __webpack_require__(42);
+var EventPluginRegistry = __webpack_require__(38);
+var ReactBrowserEventEmitter = __webpack_require__(43);
 var ReactDOMComponentFlags = __webpack_require__(79);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMInput = __webpack_require__(174);
@@ -18663,7 +18663,7 @@ var ReactMultiChild = __webpack_require__(177);
 var ReactServerRenderingTransaction = __webpack_require__(186);
 
 var emptyFunction = __webpack_require__(13);
-var escapeTextContentForBrowser = __webpack_require__(41);
+var escapeTextContentForBrowser = __webpack_require__(42);
 var invariant = __webpack_require__(1);
 var isEventSupported = __webpack_require__(52);
 var shallowEqual = __webpack_require__(59);
@@ -20174,7 +20174,7 @@ module.exports = memoizeStringOnly;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(41);
+var escapeTextContentForBrowser = __webpack_require__(42);
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -21546,7 +21546,7 @@ if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(180);
 }
 
-var emptyObject = __webpack_require__(36);
+var emptyObject = __webpack_require__(37);
 var invariant = __webpack_require__(1);
 var shallowEqual = __webpack_require__(59);
 var shouldUpdateReactComponent = __webpack_require__(60);
@@ -22728,7 +22728,7 @@ module.exports = flattenChildren;
 var _assign = __webpack_require__(5);
 
 var PooledClass = __webpack_require__(21);
-var Transaction = __webpack_require__(38);
+var Transaction = __webpack_require__(39);
 var ReactInstrumentation = __webpack_require__(11);
 var ReactServerUpdateQueue = __webpack_require__(187);
 
@@ -23172,7 +23172,7 @@ var DOMChildrenOperations = __webpack_require__(54);
 var DOMLazyTree = __webpack_require__(27);
 var ReactDOMComponentTree = __webpack_require__(6);
 
-var escapeTextContentForBrowser = __webpack_require__(41);
+var escapeTextContentForBrowser = __webpack_require__(42);
 var invariant = __webpack_require__(1);
 var validateDOMNesting = __webpack_require__(63);
 
@@ -23334,7 +23334,7 @@ module.exports = ReactDOMTextComponent;
 var _assign = __webpack_require__(5);
 
 var ReactUpdates = __webpack_require__(15);
-var Transaction = __webpack_require__(38);
+var Transaction = __webpack_require__(39);
 
 var emptyFunction = __webpack_require__(13);
 
@@ -23607,7 +23607,7 @@ var EventPluginHub = __webpack_require__(32);
 var EventPluginUtils = __webpack_require__(49);
 var ReactComponentEnvironment = __webpack_require__(58);
 var ReactEmptyComponent = __webpack_require__(96);
-var ReactBrowserEventEmitter = __webpack_require__(42);
+var ReactBrowserEventEmitter = __webpack_require__(43);
 var ReactHostComponent = __webpack_require__(97);
 var ReactUpdates = __webpack_require__(15);
 
@@ -23643,10 +23643,10 @@ var _assign = __webpack_require__(5);
 
 var CallbackQueue = __webpack_require__(83);
 var PooledClass = __webpack_require__(21);
-var ReactBrowserEventEmitter = __webpack_require__(42);
+var ReactBrowserEventEmitter = __webpack_require__(43);
 var ReactInputSelection = __webpack_require__(100);
 var ReactInstrumentation = __webpack_require__(11);
-var Transaction = __webpack_require__(38);
+var Transaction = __webpack_require__(39);
 var ReactUpdateQueue = __webpack_require__(62);
 
 /**
@@ -24719,7 +24719,7 @@ var SyntheticClipboardEvent = __webpack_require__(205);
 var SyntheticEvent = __webpack_require__(17);
 var SyntheticFocusEvent = __webpack_require__(206);
 var SyntheticKeyboardEvent = __webpack_require__(207);
-var SyntheticMouseEvent = __webpack_require__(39);
+var SyntheticMouseEvent = __webpack_require__(40);
 var SyntheticDragEvent = __webpack_require__(209);
 var SyntheticTouchEvent = __webpack_require__(210);
 var SyntheticTransitionEvent = __webpack_require__(211);
@@ -25262,7 +25262,7 @@ module.exports = getEventKey;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(39);
+var SyntheticMouseEvent = __webpack_require__(40);
 
 /**
  * @interface DragEvent
@@ -25391,7 +25391,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(39);
+var SyntheticMouseEvent = __webpack_require__(40);
 
 /**
  * @interface WheelEvent
@@ -25705,7 +25705,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 var DOMProperty = __webpack_require__(18);
-var EventPluginRegistry = __webpack_require__(37);
+var EventPluginRegistry = __webpack_require__(38);
 var ReactComponentTreeHook = __webpack_require__(10);
 
 var warning = __webpack_require__(2);
@@ -25966,7 +25966,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(43);
+var _reactRouter = __webpack_require__(35);
 
 var _routes = __webpack_require__(256);
 
@@ -28545,7 +28545,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(43);
+var _reactRouter = __webpack_require__(35);
 
 var _Layout = __webpack_require__(257);
 
@@ -28597,7 +28597,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(43);
+var _reactRouter = __webpack_require__(35);
 
 var _axios = __webpack_require__(30);
 
@@ -28626,26 +28626,8 @@ var Layout = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(
-					'div',
-					null,
-					'Layout top'
-				),
-				_react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(TopBar, null)
-				),
-				_react2.default.createElement(
-					'div',
-					null,
-					this.props.children
-				),
-				_react2.default.createElement(
-					'div',
-					null,
-					'Layout bottom'
-				)
+				_react2.default.createElement(TopBar, null),
+				this.props.children
 			);
 		}
 	}]);
@@ -28667,21 +28649,45 @@ var TopBar = function (_React$Component2) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'row' },
 				_react2.default.createElement(
 					_reactRouter.Link,
 					{ to: '/' },
-					'home'
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-4 col-sm-4 text-center panel panel-default' },
+						_react2.default.createElement(
+							'button',
+							{ type: 'button', className: 'btn btn-link' },
+							'Home'
+						)
+					)
 				),
 				_react2.default.createElement(
 					_reactRouter.Link,
 					{ to: '/upload' },
-					'upload'
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-4 col-sm-4 text-center panel panel-default' },
+						_react2.default.createElement(
+							'button',
+							{ type: 'button', className: 'btn btn-link' },
+							'Upload'
+						)
+					)
 				),
 				_react2.default.createElement(
 					_reactRouter.Link,
 					{ to: '/tags' },
-					'tags'
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-4 col-sm-4 text-center panel panel-default' },
+						_react2.default.createElement(
+							'button',
+							{ type: 'button', className: 'btn btn-link' },
+							'Tags'
+						)
+					)
 				)
 			);
 		}
@@ -29581,7 +29587,7 @@ var _axios = __webpack_require__(30);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactRouter = __webpack_require__(43);
+var _reactRouter = __webpack_require__(35);
 
 var _PlayButton = __webpack_require__(277);
 
@@ -29666,18 +29672,50 @@ var HomePage = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
-				_react2.default.createElement(Search, { data: this.state.playing }),
-				_react2.default.createElement(ControlButtons, null),
-				'Songs',
-				this.state.songs.map(function (song, i) {
-					return _react2.default.createElement(Song, { key: i, data: song });
-				}),
-				'Related',
-				this.state.relatedSongs.map(function (song, i) {
-					return _react2.default.createElement(Song, { key: i, data: song });
-				}),
-				_react2.default.createElement(_reactWebsocket2.default, { url: this.state.socketUrl, onMessage: this.handleData })
+				{ className: 'row' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(Search, { data: this.state.playing }),
+					_react2.default.createElement(ControlButtons, null)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ id: 'songs', className: 'col-md-4 col-sm-4 scrollDiv' },
+						_react2.default.createElement(
+							'h3',
+							null,
+							_react2.default.createElement(
+								'i',
+								null,
+								'Songs'
+							)
+						),
+						this.state.songs.map(function (song, i) {
+							return _react2.default.createElement(Song, { key: i, data: song });
+						})
+					),
+					_react2.default.createElement(
+						'div',
+						{ id: 'related', className: 'col-md-4 col-sm-4 scrollDiv' },
+						_react2.default.createElement(
+							'h3',
+							null,
+							_react2.default.createElement(
+								'i',
+								null,
+								'Related'
+							)
+						),
+						this.state.relatedSongs.map(function (song, i) {
+							return _react2.default.createElement(Song, { key: i, data: song });
+						})
+					),
+					_react2.default.createElement(_reactWebsocket2.default, { url: this.state.socketUrl, onMessage: this.handleData })
+				)
 			);
 		}
 	}]);
@@ -29699,11 +29737,15 @@ var Song = function (_React$Component2) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'row' },
 				_react2.default.createElement(
-					_reactRouter.Link,
-					{ to: "/details/" + this.props.data.songId },
-					this.props.data.songName
+					'div',
+					{ className: 'col-md-6 col-sm-6' },
+					_react2.default.createElement(
+						_reactRouter.Link,
+						{ to: "/details/" + this.props.data.songId },
+						this.props.data.songName
+					)
 				),
 				_react2.default.createElement(_PlayButton2.default, { data: this.props.data.songId })
 			);
@@ -29723,16 +29765,19 @@ var Search = function (_React$Component3) {
 
 		_this3.state = {
 			songId: '',
-			query: ''
+			query: '',
+			searchResults: []
 		};
 		_this3.handleSearch = _this3.handleSearch.bind(_this3);
 		_this3.querySearch = _this3.querySearch.bind(_this3);
+		_this3.selectSearch = _this3.selectSearch.bind(_this3);
 		return _this3;
 	}
 
 	_createClass(Search, [{
 		key: 'componentWillReceiveProps',
 		value: function componentWillReceiveProps(nextProps) {
+			this.setState({ searchResults: [] });
 			if (nextProps.data.songName !== undefined) {
 				this.refs.search.value = nextProps.data.songName;
 				this.setState({ songId: nextProps.data.songId });
@@ -29742,18 +29787,24 @@ var Search = function (_React$Component3) {
 		key: 'querySearch',
 		value: function querySearch() {
 			var self = this;
-			_axios2.default.post('/song/searchdata/', { search: this.refs.search.value.trim() }).then(function (response) {
-				if (response.data.status === 'OK') {
-					console.log(response.data.data);
-					if (response.data.data.length > 0) {
-						self.setState({ songId: response.data.data[0]['_source'].songId });
+			if (this.refs.search.value.trim().length > 0) {
+				_axios2.default.post('/song/searchdata/', { search: this.refs.search.value.trim() }).then(function (response) {
+					if (response.data.status === 'OK') {
+						console.log(response.data.data);
+						if (response.data.data.length > 0) {
+							self.setState({ songId: response.data.data[0].songId });
+							self.setState({ searchResults: response.data.data });
+						}
 					}
-				}
-			});
+				});
+			} else {
+				self.setState({ searchResults: [] });
+			}
 		}
 	}, {
 		key: 'handleSearch',
 		value: function handleSearch(e) {
+			this.setState({ searchResults: [] });
 			window.clearTimeout(this.state.query);
 			this.setState({ query: window.setTimeout(this.querySearch, 1500) });
 		}
@@ -29763,13 +29814,53 @@ var Search = function (_React$Component3) {
 			window.clearTimeout(this.state.query);
 		}
 	}, {
+		key: 'selectSearch',
+		value: function selectSearch(song) {
+			this.setState({ songId: song.songId, searchResults: [] });
+			this.refs.search.value = song.songName;
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			var _this4 = this;
+
 			return _react2.default.createElement(
 				'div',
-				null,
-				_react2.default.createElement('input', { type: 'text', ref: 'search', onChange: this.handleSearch }),
-				_react2.default.createElement(_PlayButton2.default, { data: this.state.songId })
+				{ className: 'col-md-6 col-sm-6' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-6 col-sm-6' },
+						_react2.default.createElement('input', { type: 'text', ref: 'search', onChange: this.handleSearch, className: 'form-control' })
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-3 col-sm-3' },
+						_react2.default.createElement(
+							_reactRouter.Link,
+							{ to: "/details/" + this.state.songId },
+							_react2.default.createElement(
+								'button',
+								{ type: 'button', className: 'btn btn-default' },
+								'Details'
+							)
+						)
+					),
+					_react2.default.createElement(_PlayButton2.default, { data: this.state.songId })
+				),
+				this.state.searchResults.length > 0 ? _react2.default.createElement(
+					'div',
+					{ className: 'absolute' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'row  panel panel-default' },
+						this.state.searchResults.map(function (searchResult, i) {
+							return _react2.default.createElement(SearchResult, { key: i, data: searchResult, selectSearch: _this4.selectSearch });
+						})
+					)
+				) : null
 			);
 		}
 	}]);
@@ -29777,8 +29868,40 @@ var Search = function (_React$Component3) {
 	return Search;
 }(_react2.default.Component);
 
-var ControlButtons = function (_React$Component4) {
-	_inherits(ControlButtons, _React$Component4);
+var SearchResult = function (_React$Component4) {
+	_inherits(SearchResult, _React$Component4);
+
+	function SearchResult(props) {
+		_classCallCheck(this, SearchResult);
+
+		var _this5 = _possibleConstructorReturn(this, (SearchResult.__proto__ || Object.getPrototypeOf(SearchResult)).call(this, props));
+
+		_this5.handleClick = _this5.handleClick.bind(_this5);
+		return _this5;
+	}
+
+	_createClass(SearchResult, [{
+		key: 'handleClick',
+		value: function handleClick(e) {
+			var song = this.props.data;
+			this.props.selectSearch(song);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'col-md-12 col-sm-12', onClick: this.handleClick },
+				this.props.data.songName
+			);
+		}
+	}]);
+
+	return SearchResult;
+}(_react2.default.Component);
+
+var ControlButtons = function (_React$Component5) {
+	_inherits(ControlButtons, _React$Component5);
 
 	function ControlButtons(props) {
 		_classCallCheck(this, ControlButtons);
@@ -29791,7 +29914,7 @@ var ControlButtons = function (_React$Component4) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'col-md-6 col-sm-6' },
 				_react2.default.createElement(PauseButton, null),
 				_react2.default.createElement(StopButton, null),
 				_react2.default.createElement(VolumeUpButton, null),
@@ -29803,16 +29926,16 @@ var ControlButtons = function (_React$Component4) {
 	return ControlButtons;
 }(_react2.default.Component);
 
-var PauseButton = function (_React$Component5) {
-	_inherits(PauseButton, _React$Component5);
+var PauseButton = function (_React$Component6) {
+	_inherits(PauseButton, _React$Component6);
 
 	function PauseButton(props) {
 		_classCallCheck(this, PauseButton);
 
-		var _this5 = _possibleConstructorReturn(this, (PauseButton.__proto__ || Object.getPrototypeOf(PauseButton)).call(this, props));
+		var _this7 = _possibleConstructorReturn(this, (PauseButton.__proto__ || Object.getPrototypeOf(PauseButton)).call(this, props));
 
-		_this5.pauseSong = _this5.pauseSong.bind(_this5);
-		return _this5;
+		_this7.pauseSong = _this7.pauseSong.bind(_this7);
+		return _this7;
 	}
 
 	_createClass(PauseButton, [{
@@ -29827,10 +29950,10 @@ var PauseButton = function (_React$Component5) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'col-md-3 col-sm-3' },
 				_react2.default.createElement(
 					'button',
-					{ onClick: this.pauseSong },
+					{ onClick: this.pauseSong, className: 'btn btn-default' },
 					'Pause'
 				)
 			);
@@ -29840,16 +29963,16 @@ var PauseButton = function (_React$Component5) {
 	return PauseButton;
 }(_react2.default.Component);
 
-var StopButton = function (_React$Component6) {
-	_inherits(StopButton, _React$Component6);
+var StopButton = function (_React$Component7) {
+	_inherits(StopButton, _React$Component7);
 
 	function StopButton(props) {
 		_classCallCheck(this, StopButton);
 
-		var _this6 = _possibleConstructorReturn(this, (StopButton.__proto__ || Object.getPrototypeOf(StopButton)).call(this, props));
+		var _this8 = _possibleConstructorReturn(this, (StopButton.__proto__ || Object.getPrototypeOf(StopButton)).call(this, props));
 
-		_this6.stopSong = _this6.stopSong.bind(_this6);
-		return _this6;
+		_this8.stopSong = _this8.stopSong.bind(_this8);
+		return _this8;
 	}
 
 	_createClass(StopButton, [{
@@ -29864,10 +29987,10 @@ var StopButton = function (_React$Component6) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'col-md-3 col-sm-3' },
 				_react2.default.createElement(
 					'button',
-					{ onClick: this.stopSong },
+					{ onClick: this.stopSong, className: 'btn btn-default' },
 					'Stop'
 				)
 			);
@@ -29877,16 +30000,16 @@ var StopButton = function (_React$Component6) {
 	return StopButton;
 }(_react2.default.Component);
 
-var VolumeUpButton = function (_React$Component7) {
-	_inherits(VolumeUpButton, _React$Component7);
+var VolumeUpButton = function (_React$Component8) {
+	_inherits(VolumeUpButton, _React$Component8);
 
 	function VolumeUpButton(props) {
 		_classCallCheck(this, VolumeUpButton);
 
-		var _this7 = _possibleConstructorReturn(this, (VolumeUpButton.__proto__ || Object.getPrototypeOf(VolumeUpButton)).call(this, props));
+		var _this9 = _possibleConstructorReturn(this, (VolumeUpButton.__proto__ || Object.getPrototypeOf(VolumeUpButton)).call(this, props));
 
-		_this7.volumeUp = _this7.volumeUp.bind(_this7);
-		return _this7;
+		_this9.volumeUp = _this9.volumeUp.bind(_this9);
+		return _this9;
 	}
 
 	_createClass(VolumeUpButton, [{
@@ -29901,10 +30024,10 @@ var VolumeUpButton = function (_React$Component7) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'col-md-3 col-sm-3' },
 				_react2.default.createElement(
 					'button',
-					{ onClick: this.volumeUp },
+					{ onClick: this.volumeUp, className: 'btn btn-default' },
 					'Volume Up'
 				)
 			);
@@ -29914,16 +30037,16 @@ var VolumeUpButton = function (_React$Component7) {
 	return VolumeUpButton;
 }(_react2.default.Component);
 
-var VolumeDownButton = function (_React$Component8) {
-	_inherits(VolumeDownButton, _React$Component8);
+var VolumeDownButton = function (_React$Component9) {
+	_inherits(VolumeDownButton, _React$Component9);
 
 	function VolumeDownButton(props) {
 		_classCallCheck(this, VolumeDownButton);
 
-		var _this8 = _possibleConstructorReturn(this, (VolumeDownButton.__proto__ || Object.getPrototypeOf(VolumeDownButton)).call(this, props));
+		var _this10 = _possibleConstructorReturn(this, (VolumeDownButton.__proto__ || Object.getPrototypeOf(VolumeDownButton)).call(this, props));
 
-		_this8.volumeDown = _this8.volumeDown.bind(_this8);
-		return _this8;
+		_this10.volumeDown = _this10.volumeDown.bind(_this10);
+		return _this10;
 	}
 
 	_createClass(VolumeDownButton, [{
@@ -29938,10 +30061,10 @@ var VolumeDownButton = function (_React$Component8) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'col-md-3 col-sm-3' },
 				_react2.default.createElement(
 					'button',
-					{ onClick: this.volumeDown },
+					{ onClick: this.volumeDown, className: 'btn btn-default' },
 					'Volume Down'
 				)
 			);
@@ -30006,10 +30129,10 @@ var PlayButton = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'col-md-3 col-sm-3' },
 				_react2.default.createElement(
 					'button',
-					{ onClick: this.playSong },
+					{ onClick: this.playSong, className: 'btn btn-default' },
 					'Play'
 				)
 			);
@@ -31293,13 +31416,25 @@ var UploadPage = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
-				_react2.default.createElement('input', { type: 'text', ref: 'name' }),
-				_react2.default.createElement('input', { type: 'file', ref: 'file' }),
+				{ className: 'row' },
 				_react2.default.createElement(
-					'button',
-					{ onClick: this.uploadSong },
-					'Click'
+					'div',
+					{ className: 'col-md-4' },
+					_react2.default.createElement('input', { type: 'text', ref: 'name', className: 'form-control', placeholder: 'Name of song' })
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'col-md-4' },
+					_react2.default.createElement('input', { type: 'file', ref: 'file', className: 'form-control', placeholder: 'Upload file' })
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'col-md-4' },
+					_react2.default.createElement(
+						'button',
+						{ onClick: this.uploadSong, className: 'btn btn-default' },
+						'Submit'
+					)
 				)
 			);
 		}
@@ -31348,9 +31483,13 @@ var TagsPage = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (TagsPage.__proto__ || Object.getPrototypeOf(TagsPage)).call(this, props));
 
 		_this.state = {
-			tags: []
+			tags: [],
+			tagClick: false,
+			clickedTag: {}
 		};
 		_this.addTag = _this.addTag.bind(_this);
+		_this.editTag = _this.editTag.bind(_this);
+		_this.tagClicked = _this.tagClicked.bind(_this);
 		return _this;
 	}
 
@@ -31379,19 +31518,57 @@ var TagsPage = function (_React$Component) {
 			});
 		}
 	}, {
+		key: 'editTag',
+		value: function editTag(tag) {
+			var self = this;
+			console.log(tag);
+			_axios2.default.post('/tag/edit/', { id: tag.tagId, name: tag.tagName }).then(function (response) {
+				if (response.data.status === 'OK') {
+					var oldTags = self.state.tags;
+					var newTags = [];
+					var i;
+					for (i = 0; i < oldTags.length; i++) {
+						if (oldTags[i].tagId === tag.tagId) {
+							oldTags[i].tagName = tag.tagName;
+						}
+						newTags.push(oldTags[i]);
+					}
+					self.setState({ tags: newTags });
+					self.setState({ tagClick: !self.state.tagClick });
+				}
+			});
+		}
+	}, {
+		key: 'tagClicked',
+		value: function tagClicked(tag) {
+			this.setState({ clickedTag: tag });
+			this.setState({ tagClick: !this.state.tagClick });
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
 			return _react2.default.createElement(
 				'div',
-				null,
-				_react2.default.createElement('input', { type: 'text', ref: 'tag' }),
+				{ className: 'row' },
 				_react2.default.createElement(
-					'button',
-					{ onClick: this.addTag },
-					'Add'
+					'div',
+					{ className: 'col-md-6 col-sm-6' },
+					_react2.default.createElement('input', { type: 'text', ref: 'tag', placeholder: 'Tag name', className: 'form-control' })
 				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'col-md-6 col-sm-6' },
+					_react2.default.createElement(
+						'button',
+						{ onClick: this.addTag, className: 'btn btn-default' },
+						'Add'
+					)
+				),
+				this.state.tagClick ? _react2.default.createElement(EditTag, { data: this.state.clickedTag, editTag: this.editTag }) : null,
 				this.state.tags.map(function (tag, i) {
-					return _react2.default.createElement(Tag, { key: i, data: tag });
+					return _react2.default.createElement(Tag, { key: i, data: tag, tagClicked: _this2.tagClicked });
 				})
 			);
 		}
@@ -31406,21 +31583,100 @@ var Tag = function (_React$Component2) {
 	function Tag(props) {
 		_classCallCheck(this, Tag);
 
-		return _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
+		var _this3 = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
+
+		_this3.handleClick = _this3.handleClick.bind(_this3);
+		return _this3;
 	}
 
 	_createClass(Tag, [{
+		key: 'handleClick',
+		value: function handleClick(e) {
+			var tag = {};
+			tag.tagName = this.props.data.tagName;
+			tag.tagId = this.props.data.tagId;
+			this.props.tagClicked(tag);
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			var _this4 = this;
+
 			return _react2.default.createElement(
 				'div',
-				null,
-				this.props.data.tagName
+				{ className: 'col-md-3 col-sm-3' },
+				_react2.default.createElement(
+					'button',
+					{ type: 'button', className: 'btn btn-default', onClick: function onClick(e) {
+							return _this4.handleClick(e);
+						} },
+					this.props.data.tagName
+				)
 			);
 		}
 	}]);
 
 	return Tag;
+}(_react2.default.Component);
+
+var EditTag = function (_React$Component3) {
+	_inherits(EditTag, _React$Component3);
+
+	function EditTag(props) {
+		_classCallCheck(this, EditTag);
+
+		var _this5 = _possibleConstructorReturn(this, (EditTag.__proto__ || Object.getPrototypeOf(EditTag)).call(this, props));
+
+		_this5.state = {
+			tagName: _this5.props.data.tagName
+		};
+		_this5.changeName = _this5.changeName.bind(_this5);
+		_this5.handleClick = _this5.handleClick.bind(_this5);
+		return _this5;
+	}
+
+	_createClass(EditTag, [{
+		key: 'changeName',
+		value: function changeName(e) {
+			this.setState({ tagName: e.target.value });
+		}
+	}, {
+		key: 'handleClick',
+		value: function handleClick(e) {
+			var tag = {};
+			tag.tagName = this.refs.tag.value.trim();
+			tag.tagId = this.props.data.tagId;
+			this.props.editTag(tag);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var _this6 = this;
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'row' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'col-md-6 col-sm-6' },
+					_react2.default.createElement('input', { type: 'text', ref: 'tag', placeholder: 'Tag name', className: 'form-control', value: this.state.tagName, onChange: this.changeName })
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'col-md-6 col-sm-6' },
+					_react2.default.createElement(
+						'button',
+						{ onClick: function onClick(e) {
+								return _this6.handleClick(e);
+							}, className: 'btn btn-default' },
+						'Edit'
+					)
+				)
+			);
+		}
+	}]);
+
+	return EditTag;
 }(_react2.default.Component);
 
 exports.default = TagsPage;
@@ -31445,6 +31701,8 @@ var _react2 = _interopRequireDefault(_react);
 var _axios = __webpack_require__(30);
 
 var _axios2 = _interopRequireDefault(_axios);
+
+var _reactRouter = __webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31471,6 +31729,9 @@ var DetailsPage = function (_React$Component) {
 		};
 		_this.addTag = _this.addTag.bind(_this);
 		_this.removeTag = _this.removeTag.bind(_this);
+		_this.changeName = _this.changeName.bind(_this);
+		_this.editSong = _this.editSong.bind(_this);
+		_this.removeSong = _this.removeSong.bind(_this);
 		return _this;
 	}
 
@@ -31531,24 +31792,78 @@ var DetailsPage = function (_React$Component) {
 			});
 		}
 	}, {
+		key: 'editSong',
+		value: function editSong(e) {
+			var self = this;
+			_axios2.default.post('/song/edit/', { name: this.state.songName, id: self.props.params.songId }).then(function (response) {
+				if (response.data.status === 'OK') {}
+			});
+		}
+	}, {
+		key: 'removeSong',
+		value: function removeSong(e) {
+			var self = this;
+			_axios2.default.post('/song/remove/', { id: self.props.params.songId }).then(function (response) {
+				if (response.data.status === 'OK') {
+					_reactRouter.browserHistory.replace("/");
+				}
+			});
+		}
+	}, {
+		key: 'changeName',
+		value: function changeName(e) {
+			this.setState({ songName: e.target.value });
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			var _this2 = this;
 
 			return _react2.default.createElement(
 				'div',
-				null,
-				this.state.songName,
-				' ',
-				this.state.songId,
-				' tags-',
-				this.state.tags.map(function (tag, i) {
-					return _react2.default.createElement(Tag, { onClick: _this2.removeTag.bind(null, tag), key: i, data: tag });
-				}),
-				' tags left-',
-				this.state.tagsLeft.map(function (tagLeft, i) {
-					return _react2.default.createElement(Tag, { onClick: _this2.addTag.bind(null, tagLeft), key: i, data: tagLeft });
-				})
+				{ className: 'row' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-6' },
+						_react2.default.createElement('input', { type: 'text', ref: 'songName', className: 'form form-control', value: this.state.songName, onChange: this.changeName })
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-6' },
+						_react2.default.createElement(
+							'button',
+							{ type: 'type', onClick: this.editSong, className: 'btn btn-default' },
+							'Edit'
+						),
+						'\xA0',
+						_react2.default.createElement(
+							'button',
+							{ type: 'type', onClick: this.removeSong, className: 'btn btn-default' },
+							'Delete'
+						)
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-6' },
+						this.state.tags.map(function (tag, i) {
+							return _react2.default.createElement(Tag, { onClick: _this2.removeTag.bind(null, tag), key: i, data: tag });
+						})
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-6' },
+						this.state.tagsLeft.map(function (tagLeft, i) {
+							return _react2.default.createElement(Tag, { onClick: _this2.addTag.bind(null, tagLeft), key: i, data: tagLeft });
+						})
+					)
+				)
 			);
 		}
 	}]);
@@ -31570,10 +31885,10 @@ var Tag = function (_React$Component2) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'col-md-3 col-sm-3' },
 				_react2.default.createElement(
 					'button',
-					{ type: 'button', onClick: this.props.onClick },
+					{ type: 'button', onClick: this.props.onClick, className: 'btn btn-default' },
 					this.props.data.tagName
 				)
 			);

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {browserHistory} from 'react-router';
 
 class DetailsPage extends React.Component{
 	constructor(props){
@@ -13,6 +14,9 @@ class DetailsPage extends React.Component{
 		}
 		this.addTag=this.addTag.bind(this);
 		this.removeTag=this.removeTag.bind(this);
+		this.changeName=this.changeName.bind(this);
+		this.editSong=this.editSong.bind(this);
+		this.removeSong=this.removeSong.bind(this);
 	}
 	componentDidMount(){
 		var self=this;
@@ -64,10 +68,39 @@ class DetailsPage extends React.Component{
 			}
 		});
 	}
+	editSong(e){
+		var self=this;
+		axios.post('/song/edit/', {name: this.state.songName, id: self.props.params.songId}).then(function(response){
+			if(response.data.status==='OK'){
+				
+			}
+		});
+	}
+	removeSong(e){
+		var self=this;
+		axios.post('/song/remove/', {id: self.props.params.songId}).then(function(response){
+			if(response.data.status==='OK'){
+				browserHistory.replace("/");
+			}
+		});
+	}
+	changeName(e){
+		this.setState({songName: e.target.value});
+	}
 	render(){
 		return(
-			<div>
-				{this.state.songName} {this.state.songId} tags-{this.state.tags.map((tag, i)=><Tag onClick={this.removeTag.bind(null,tag)} key={i} data={tag} />)} tags left-{this.state.tagsLeft.map((tagLeft, i)=><Tag onClick={this.addTag.bind(null,tagLeft)} key={i} data={tagLeft} />)}
+			<div className="row">
+				<div className="row">
+					<div className="col-md-6"><input type="text" ref="songName" className="form form-control" value={this.state.songName} onChange={this.changeName} /></div>
+					<div className="col-md-6">
+						<button type="type" onClick={this.editSong} className="btn btn-default">Edit</button>&nbsp;
+						<button type="type" onClick={this.removeSong} className="btn btn-default">Delete</button>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-md-6">{this.state.tags.map((tag, i)=><Tag onClick={this.removeTag.bind(null,tag)} key={i} data={tag} />)}</div>
+					<div className="col-md-6">{this.state.tagsLeft.map((tagLeft, i)=><Tag onClick={this.addTag.bind(null,tagLeft)} key={i} data={tagLeft} />)}</div>
+				</div>
 			</div>
 		);
 	}
@@ -79,7 +112,7 @@ class Tag extends React.Component{
 	}
 	render(){
 		return(
-			<div><button type="button" onClick={this.props.onClick}>{this.props.data.tagName}</button></div>
+			<div className="col-md-3 col-sm-3"><button type="button" onClick={this.props.onClick} className="btn btn-default">{this.props.data.tagName}</button></div>
 		);
 	}
 }

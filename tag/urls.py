@@ -4,4 +4,5 @@ from views import *
 urlpatterns = [
 	url(r'^add/$', add),
 	url(r'^alltags/$', allTags),
+	url(r'^edit/$', edit),
 ]

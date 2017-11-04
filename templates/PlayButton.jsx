@@ -13,8 +13,8 @@ class PlayButton extends React.Component{
 	}
 	render(){
 		return(
-			<div>
-				<button onClick={this.playSong}>Play</button>
+			<div className="col-md-3 col-sm-3">
+				<button onClick={this.playSong} className="btn btn-default">Play</button>
 			</div>
 		);
 	}

@@ -16,4 +16,5 @@ urlpatterns = [
 	url(r'^removetag/$', removeTag),
 	url(r'^tagsleft/$', tagsLeft),
 	url(r'^indexdata/$', indexData),
+	url(r'^searchdata/$', searchData),
 ]

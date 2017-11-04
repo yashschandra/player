@@ -22,10 +22,10 @@ class UploadPage extends React.Component{
 	}
 	render(){
 		return(
-			<div>
-				<input type="text" ref="name"/>
-				<input type="file" ref="file"/>
-				<button onClick={this.uploadSong}>Click</button>
+			<div className="row">
+				<div className="col-md-4"><input type="text" ref="name" className="form-control" placeholder="Name of song"/></div>
+				<div className="col-md-4"><input type="file" ref="file" className="form-control" placeholder="Upload file"/></div>
+				<div className="col-md-4"><button onClick={this.uploadSong} className="btn btn-default">Submit</button></div>
 			</div>
 		);
 	}
