@@ -62,7 +62,7 @@ class TagsPage extends React.Component{
 				<div className="col-md-6 col-sm-6"><input type="text" ref="tag" placeholder="Tag name" className="form-control" /></div>
 				<div className="col-md-6 col-sm-6"><button onClick={this.addTag} className="btn btn-default">Add</button></div>
 				{this.state.tagClick?<EditTag data={this.state.clickedTag} editTag={this.editTag} />:null}
-				{this.state.tags.map((tag, i)=><Tag key={i} data={tag} tagClicked={this.tagClicked} />)}
+				<div className="scrollDiv">{this.state.tags.map((tag, i)=><Tag key={i} data={tag} tagClicked={this.tagClicked} />)}</div>
 			</div>
 		);
 	}
@@ -81,7 +81,7 @@ class Tag extends React.Component{
 	}
 	render(){
 		return(
-			<div className="col-md-3 col-sm-3"><button type="button" className="btn btn-default" onClick={(e)=>this.handleClick(e)}>{this.props.data.tagName}</button></div>
+			<div className="tag"><button type="button" className="btn btn-default" onClick={(e)=>this.handleClick(e)}>{this.props.data.tagName}</button></div>
 		);
 	}
 }

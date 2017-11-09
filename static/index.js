@@ -31567,9 +31567,13 @@ var TagsPage = function (_React$Component) {
 					)
 				),
 				this.state.tagClick ? _react2.default.createElement(EditTag, { data: this.state.clickedTag, editTag: this.editTag }) : null,
-				this.state.tags.map(function (tag, i) {
-					return _react2.default.createElement(Tag, { key: i, data: tag, tagClicked: _this2.tagClicked });
-				})
+				_react2.default.createElement(
+					'div',
+					{ className: 'scrollDiv' },
+					this.state.tags.map(function (tag, i) {
+						return _react2.default.createElement(Tag, { key: i, data: tag, tagClicked: _this2.tagClicked });
+					})
+				)
 			);
 		}
 	}]);
@@ -31604,7 +31608,7 @@ var Tag = function (_React$Component2) {
 
 			return _react2.default.createElement(
 				'div',
-				{ className: 'col-md-3 col-sm-3' },
+				{ className: 'tag' },
 				_react2.default.createElement(
 					'button',
 					{ type: 'button', className: 'btn btn-default', onClick: function onClick(e) {
@@ -31851,14 +31855,14 @@ var DetailsPage = function (_React$Component) {
 					{ className: 'row' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'col-md-6' },
+						{ className: 'col-md-6 scrollDiv' },
 						this.state.tags.map(function (tag, i) {
 							return _react2.default.createElement(Tag, { onClick: _this2.removeTag.bind(null, tag), key: i, data: tag });
 						})
 					),
 					_react2.default.createElement(
 						'div',
-						{ className: 'col-md-6' },
+						{ className: 'col-md-6 scrollDiv' },
 						this.state.tagsLeft.map(function (tagLeft, i) {
 							return _react2.default.createElement(Tag, { onClick: _this2.addTag.bind(null, tagLeft), key: i, data: tagLeft });
 						})
@@ -31885,7 +31889,7 @@ var Tag = function (_React$Component2) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				{ className: 'col-md-3 col-sm-3' },
+				{ className: 'tag' },
 				_react2.default.createElement(
 					'button',
 					{ type: 'button', onClick: this.props.onClick, className: 'btn btn-default' },

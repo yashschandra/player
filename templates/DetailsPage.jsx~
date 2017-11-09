@@ -16,6 +16,7 @@ class DetailsPage extends React.Component{
 		this.removeTag=this.removeTag.bind(this);
 		this.changeName=this.changeName.bind(this);
 		this.editSong=this.editSong.bind(this);
+		this.removeSong=this.removeSong.bind(this);
 	}
 	componentDidMount(){
 		var self=this;
@@ -111,7 +112,7 @@ class Tag extends React.Component{
 	}
 	render(){
 		return(
-			<div className="col-md-3 col-sm-3"><button type="button" onClick={this.props.onClick} className="btn btn-default">{this.props.data.tagName}</button></div>
+			<div className="tag"><button type="button" onClick={this.props.onClick} className="btn btn-default">{this.props.data.tagName}</button></div>
 		);
 	}
 }

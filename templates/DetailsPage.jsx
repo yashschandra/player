@@ -98,8 +98,8 @@ class DetailsPage extends React.Component{
 					</div>
 				</div>
 				<div className="row">
-					<div className="col-md-6">{this.state.tags.map((tag, i)=><Tag onClick={this.removeTag.bind(null,tag)} key={i} data={tag} />)}</div>
-					<div className="col-md-6">{this.state.tagsLeft.map((tagLeft, i)=><Tag onClick={this.addTag.bind(null,tagLeft)} key={i} data={tagLeft} />)}</div>
+					<div className="col-md-6 scrollDiv">{this.state.tags.map((tag, i)=><Tag onClick={this.removeTag.bind(null,tag)} key={i} data={tag} />)}</div>
+					<div className="col-md-6 scrollDiv">{this.state.tagsLeft.map((tagLeft, i)=><Tag onClick={this.addTag.bind(null,tagLeft)} key={i} data={tagLeft} />)}</div>
 				</div>
 			</div>
 		);
@@ -112,7 +112,7 @@ class Tag extends React.Component{
 	}
 	render(){
 		return(
-			<div className="col-md-3 col-sm-3"><button type="button" onClick={this.props.onClick} className="btn btn-default">{this.props.data.tagName}</button></div>
+			<div className="tag"><button type="button" onClick={this.props.onClick} className="btn btn-default">{this.props.data.tagName}</button></div>
 		);
 	}
 }

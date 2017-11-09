@@ -12,3 +12,8 @@ div {
 	position: absolute;
 	z-index: 2;
 }
+
+.tag {
+	float: left;
+	margin: 5px;
+}
